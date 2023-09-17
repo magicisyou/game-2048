@@ -2,7 +2,7 @@
 
 2048 game built with tauri
 
-[![Release](https://github.com/sra2022/play2048/actions/workflows/release.yml/badge.svg)](https://github.com/sra2022/play2048/actions/workflows/release.yml)
+[![Release](https://github.com/youaremagic/game-2048/actions/workflows/release.yml/badge.svg)](https://github.com/youaremagic/game-2048/actions/workflows/release.yml)
 
 ## About
 
