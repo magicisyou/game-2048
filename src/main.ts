@@ -1,7 +1,7 @@
 import { invoke } from "@tauri-apps/api/tauri";
 
 let game: any;
-let button: any;
+let button: HTMLButtonElement | null;
 
 async function newGame() {
   game = await invoke("new_game");
@@ -14,16 +14,17 @@ async function getGameState() {
 }
 
 function render() {
-  let cell: any;
+  let cell: HTMLDivElement | null;
   for (let row = 0; row < 4; row++) {
     for (let col = 0; col < 4; col++) {
-      cell = document.getElementById(`c${row}${col}`);
-      if (game.state[row][col] === 0) {
-        cell.innerText = "";
-        cell.style.backgroundColor = null;
-      } else {
+      cell = document.querySelector(`#c${row}${col}`);
+      if (cell) {
         cell.innerText = game.state[row][col];
         switch (game.state[row][col]) {
+          case 0:
+            cell.innerText = "";
+            cell.style.backgroundColor = "#99cccc";
+            break;
           case 2:
             cell.style.backgroundColor = "#66ff33";
             break;
@@ -61,16 +62,18 @@ function render() {
             cell.style.backgroundColor = "#ccff33";
             break;
           default:
-            cell.style.backgroundColor = null;
+            cell.style.backgroundColor = "#99cccc";
         }
       }
     }
   }
-  const score: any = document.getElementById("score");
+  const score: HTMLParagraphElement | any = document.querySelector("#score");
   score.innerText = game.score;
-  const button: any = document.querySelector(".message");
-  if (game.lock === true) button.innerText = "Game Over";
-  else button.innerText = "";
+  button = document.querySelector(".message");
+  if (button) {
+    if (game.lock) button.innerText = "Game Over";
+    else button.innerText = "";
+  }
 }
 
 async function gameEventListener(gEvent: number) {
@@ -78,16 +81,18 @@ async function gameEventListener(gEvent: number) {
   render();
 }
 
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   getGameState();
-  button = document.getElementById("new-game-button");
-  button.onclick = () => {
-    newGame();
-  };
-  document.addEventListener("keydown", (event) => {
+  button = document.querySelector("#new-game-button");
+  if (button) button.onclick = () => newGame();
+  document.onkeydown = (event) => {
     if (event.key == "ArrowUp") gameEventListener(1);
     else if (event.key == "ArrowRight") gameEventListener(2);
     else if (event.key == "ArrowDown") gameEventListener(3);
     else if (event.key == "ArrowLeft") gameEventListener(4);
-  });
+  };
 });

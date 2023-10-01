@@ -12,7 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  cursor: context-menu;
+  cursor: default;
 }
 
 .container {
@@ -33,7 +33,8 @@ header {
   justify-content: space-between;
 }
 
-.left, .right {
+.left,
+.right {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,15 +54,15 @@ h1 {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #cc6699;
-  border: solid #cc6699 2px;
+  background-color: #54a496;
+  border: solid #54a496 2px;
   border-radius: 7px;
+  color: #2f2f2f;
 }
 
 .cell {
   width: 24%;
   height: 24%;
-  background-color: #99cccc;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,12 +74,10 @@ h1 {
   text-align: center;
   font-size: 32px;
   padding: 15px;
-  font-family: cursive;
 }
 
 #new-game-button {
   border: none;
-  font-family: cursive;
   padding: 8px;
   background-color: inherit;
   color: #cc6699;
@@ -95,7 +94,8 @@ h1 {
     background-color: #2f2f2f;
   }
 
-  #new-game-button {
-    border-color: #dfffdf;
+  .game {
+    background-color: #546b7b;
+    border: solid #546b7b 2px;
   }
 }
