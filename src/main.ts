@@ -2,6 +2,7 @@ import { invoke } from "@tauri-apps/api/tauri";
 
 let game: any;
 let button: HTMLButtonElement | null;
+let message: HTMLDivElement | null;
 
 async function newGame() {
   game = await invoke("new_game");
@@ -69,10 +70,16 @@ function render() {
   }
   const score: HTMLParagraphElement | any = document.querySelector("#score");
   score.innerText = game.score;
-  button = document.querySelector(".message");
-  if (button) {
-    if (game.lock) button.innerText = "Game Over";
-    else button.innerText = "";
+  message = document.querySelector(".message");
+  if (message) {
+    if (game.lock) {
+      message.innerText = "Game Over";
+      message.style.background =
+        "linear-gradient(to right,#0008,#0005, #0006, #0008)";
+    } else {
+      message.innerText = "";
+      message.style.background = "transparent";
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 [package]
 name = "game-2048"
-version = "0.2.0"
+version = "1.0.0"
 description = "2048 game built with tauri"
 authors = ["youaremagic"]
 license = "MIT | Apache-2.0"

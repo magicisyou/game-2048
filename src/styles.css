@@ -3,9 +3,10 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  height: 100%;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+  color: #101321;
+  background: radial-gradient(circle at 90%, #008170, #20a190 50%, #232d3f 95%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,42 +23,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8vh;
   text-align: center;
 }
 
 header {
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-.left,
 .right {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-}
-
-h1 {
-  text-align: center;
+  gap: 10px;
 }
 
 .game {
-  width: min(60vh, 60vw);
-  height: min(60vh, 60vw);
+  width: 60vh;
+  height: 60vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: #54a496;
-  border: solid #54a496 2px;
-  border-radius: 7px;
-  color: #2f2f2f;
+  border: solid #54a496 7px;
+  border-radius: 6px;
+  box-shadow: 0 0 30px #54a496;
 }
 
 .cell {
@@ -67,35 +64,27 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 .message {
-  text-align: center;
+  position: fixed;
+  top: 13vh;
   font-size: 32px;
-  padding: 15px;
+  color: #ddd;
+  height: 70vh;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #new-game-button {
   border: none;
-  padding: 8px;
   background-color: inherit;
-  color: #cc6699;
   outline: none;
 }
 
 #new-game-button:hover {
-  color: #99cc66;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
-  }
-
-  .game {
-    background-color: #546b7b;
-    border: solid #546b7b 2px;
-  }
+  text-shadow: 0 0 30px white;
 }

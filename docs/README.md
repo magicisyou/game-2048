@@ -6,7 +6,7 @@
 
 ## About
 
-The goal of the game is to build tile 2048 (or bigger) combining tiles with same number. Arrow keys are used to move tiles.
+2048 is a puzzle game. The goal of the game is to build tile 2048 (or bigger) combining tiles with same number. Arrow keys are used to move tiles.
 
 The game can be downloaded from github release for Windows, Linux and Mac OS.
 
